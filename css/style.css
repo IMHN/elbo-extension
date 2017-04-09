@@ -1,0 +1,55 @@
+body {
+  width: 400px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Open Sans';
+}
+
+body, .btn, .form-control {
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  src: local('Open Sans'), local('OpenSans'), url('../fonts/open-sans.woff');
+}
+
+.short-link {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.share-icons a {
+  line-height: 1em;
+  font-size: 3em;
+  margin-right: 3px;
+}
+
+.share-icons a:hover {
+  text-decoration: none;
+}
+
+.share-icons a.icon-facebook-squared {
+  color: #3B5998;
+}
+
+.share-icons a.icon-gplus-squared {
+  color: #DC4E40;
+}
+
+.share-icons a.icon-twitter-squared {
+  color: #00BFF6;
+}
+
+.message-well {
+  margin-bottom: 0;
+}
+
+.promo-text {
+  font-size: 0.9em;
+}
