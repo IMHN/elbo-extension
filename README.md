@@ -4,6 +4,9 @@ Chrome Extension/WebExtension for use with [elbo.in](https://elbo.in/), the URL 
 
 * Chrome: https://chrome.google.com/webstore/detail/elboin-url-shortener/ecllbibphdcbbpjdilliapdjmdneoacp
 * Firefox: https://addons.mozilla.org/en-GB/firefox/addon/elbo-url-shortener/
+* Opera: https://addons.opera.com/en/extensions/details/qurlpw-shorten-your-links/
+
+The source repository is at <https://github.com/boolean-world/elbo-extension>.
 
 # License
 
