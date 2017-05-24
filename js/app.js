@@ -70,6 +70,12 @@ chrome.tabs.query({
 				"target": "_blank"
 			}));
 
+			share_col.append($("<a/>", {
+				"href": "https://elbo.in/~qr/" + data.shorturl,
+				"class": "icon-qrcode",
+				"target": "_blank"
+			}))
+
 			var copy_col = $("<div/>", {
 				"class": "col-xs-6"
 			}).append($("<div/>", {
@@ -80,7 +86,8 @@ chrome.tabs.query({
 			actions_row.append(share_col).append(copy_col);
 			result_area.append(actions_row).append($("<div/>", {
 				"class": "centered-text promo-text"
-			}).html('For analytics and custom links, visit <a href="https://elbo.in/">elbo.in</a>'));
+			}).html("For analytics and custom links, visit " +
+			        '<a target="_blank" href="https://elbo.in/">elbo.in</a>'));
 		}
 		else if (data.reason === "invalid_url") {
 			result_area.append($("<div/>", {
@@ -90,16 +97,19 @@ chrome.tabs.query({
 		else if (data.reason === "ratelimited") {
 			result_area.append($("<div/>", {
 				"class": "well message-well centered-text"
-			}).text('You have shortened too many URLs for now. Please visit <a href="https://elbo.in">elbo.in</a> to shorten more :)'));
+			}).html("You have shortened too many URLs for now. Please visit " +
+			        '<a target="_blank" href="https://elbo.in">elbo.in</a> to shorten more :)'));
 		}
 		else {
 			result_area.append($("<div/>", {
 				"class": "well message-well centered-text"
-			}).text('Oops! Shortening that URL failed due to an unexpected error. If the problem persists, please <a href="https://www.booleanworld.com/contact-us\">contact us</a>.'));
+			}).html("Oops! Shortening that URL failed due to an unexpected error. If the problem persists, please " +
+			        '<a target="_blank" href="https://www.booleanworld.com/contact-us">contact us</a>.'));
 		}
 	}).fail(function() {
-		result_area.append($("<div/>", {
+		result_area.empty().append($("<div/>", {
 				"class": "well message-well centered-text"
-		}).text('Oops! Shortening that URL failed due to an unexpected error. If the problem persists, please <a href="https://www.booleanworld.com/contact-us">contact us</a>.'));
+		}).html("Oops! Shortening that URL failed due to an unexpected error. If the problem persists, please " +
+		        '<a target="_blank" href="https://www.booleanworld.com/contact-us">contact us</a>.'));
 	});
 });

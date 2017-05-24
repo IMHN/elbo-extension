@@ -46,6 +46,10 @@ body, .btn, .form-control {
   color: #00BFF6;
 }
 
+.share-icons a.icon-qrcode {
+  color: #25373D;
+}
+
 .message-well {
   margin-bottom: 0;
 }

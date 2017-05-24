@@ -14,8 +14,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
-.icon-arrows-cw:before { content: '\e800'; } /* '' */
+
+.icon-qrcode:before { content: '\e800'; } /* '' */
+.icon-arrows-cw:before { content: '\e801'; } /* '' */
 .icon-gplus-squared:before { content: '\f0d4'; } /* '' */
 .icon-clone:before { content: '\f24d'; } /* '' */
 .icon-twitter-squared:before { content: '\f304'; } /* '' */
