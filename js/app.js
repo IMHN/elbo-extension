@@ -94,6 +94,11 @@ chrome.tabs.query({
 				"class": "well message-well centered-text"
 			}).text("This link cannot be shortened."));
 		}
+		else if (data.reason === "prohibited_url") {
+			result_area.append($("<div/>", {
+				"class": "well message-well centered-text"
+			}).text("This URL cannot be shortened. Please do not use a URL shortener link."));
+		}
 		else if (data.reason === "ratelimited") {
 			result_area.append($("<div/>", {
 				"class": "well message-well centered-text"
