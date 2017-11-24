@@ -4,7 +4,7 @@
 
 function esc() {
 	local length=${#1}
-	local rv
+	local rv=""
 	local i
 
 	for ((i = 0; i < length; i++)); do
@@ -39,7 +39,11 @@ function get_version() {
 }
 
 function get_chrome_command() {
-	which chromium-browser || which google-chrome
+	for i in chromium-browser google-chrome google-chrome-stable chrome; do
+		which "$i" 2>/dev/null && return 0
+	done
+
+	return 1
 }
 
 function generate_chrome_package() {
@@ -57,25 +61,24 @@ function generate_chrome_package() {
 }
 
 function generate_opera_package() {
+	local chrome
+
 	print "info{Building Opera upload package}"
+
+	if ! chrome="$(get_chrome_command)"; then
+		print "error{Failed to find an installation of Chromium/Google Chrome.}"
+		return 1
+	fi
+
 	local dirname="build/elbo-extension-$(get_version)-opera"
-
-	rm -rf "$dirname"*
-
+	rm -rf "$dirname"
 	mkdir -p "$dirname"
 
 	print "  comment{Copying files}"
 	cp -r "${file_list[@]}" "$dirname"
 
 	print "  comment{Building CRX package}"
-
-	if ! local chrome="$(get_chrome_command)"; then
-		print "error{Failed to find an installation of Chromium/Google Chrome.}"
-		return 1
-	fi
-
 	"$chrome" --pack-extension="$dirname"
-
 	print "  comment{Cleaning up residual files}"
 	rm -r "$dirname"
 }
